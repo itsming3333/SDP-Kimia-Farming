@@ -28,5 +28,11 @@ namespace KimiaFarming
         {
 
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            FormParent parent = (FormParent)this.MdiParent;
+            parent.goTo(1);
+        }
     }
 }
