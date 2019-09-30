@@ -26,7 +26,9 @@ namespace KimiaFarming
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
+            FormParent parent = (FormParent)this.MdiParent;
+            parent.goTo(-1);
+            parent.createMenu("admin");
         }
 
         private void Button2_Click(object sender, EventArgs e)

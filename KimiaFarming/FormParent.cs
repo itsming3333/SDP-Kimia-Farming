@@ -14,6 +14,8 @@ namespace KimiaFarming
     {
         FormPengguna f_pengguna;
         FormLogin f_login;
+
+        public String passAdmin = "admin1234";
         public FormParent()
         {
             InitializeComponent();
@@ -154,8 +156,89 @@ namespace KimiaFarming
                 menuStrip1.Items.Add(logout);
             }else if(page == "admin")
             {
+                ToolStripMenuItem laporan = new ToolStripMenuItem("Laporan");
+                ToolStripMenuItem laporanKunjungan = new ToolStripMenuItem("Laporan Data Kunjungan");
+                laporanKunjungan.Click += laporan_kunjungan;
+                ToolStripMenuItem laporanKeuangan = new ToolStripMenuItem("Laporan Keuangan");
+                laporanKeuangan.Click += laporan_keuangan;
+                ToolStripMenuItem laporanPerawatan = new ToolStripMenuItem("Laporan Perawatan");
+                laporanPerawatan.Click += laporan_perawatan;
+                ToolStripMenuItem laporanWarehouse = new ToolStripMenuItem("Laporan Warehouse");
+                laporanWarehouse.Click += laporan_warehouse;
+                ToolStripMenuItem laporanPegawai = new ToolStripMenuItem("Laporan Pegawai");
+                laporanPegawai.Click += laporan_pegawai;
+                ToolStripMenuItem laporanInap = new ToolStripMenuItem("Laporan Rawat Inap");
+                laporanInap.Click += laporan_inap;
+                laporan.DropDownItems.Add(laporanKunjungan);
+                laporan.DropDownItems.Add(laporanKeuangan);
+                laporan.DropDownItems.Add(laporanPerawatan);
+                laporan.DropDownItems.Add(laporanWarehouse);
+                laporan.DropDownItems.Add(laporanPegawai);
+                laporan.DropDownItems.Add(laporanInap);
+                menuStrip1.Items.Add(laporan);
 
+                ToolStripMenuItem masterData = new ToolStripMenuItem("Master Data");
+                ToolStripMenuItem masterPegawai = new ToolStripMenuItem("Data Pegawai");
+                masterPegawai.Click += master_pegawai;
+                ToolStripMenuItem masterOperasional = new ToolStripMenuItem("Data Rumah Sakit");
+                masterOperasional.Click += master_operasional;
+                masterData.DropDownItems.Add(masterPegawai);
+                masterData.DropDownItems.Add(masterOperasional);
+                menuStrip1.Items.Add(masterData);
+
+                ToolStripMenuItem settingAdmin = new ToolStripMenuItem("Setting");
+                settingAdmin.Click += setting_admin;
+                menuStrip1.Items.Add(settingAdmin);
+
+                ToolStripMenuItem logout = new ToolStripMenuItem("Log Out");
+                logout.Click += logout_click;
+                menuStrip1.Items.Add(logout);
             }
+        }
+
+        private void setting_admin(object sender, EventArgs e)
+        {
+            //Setting data password admin
+        }
+
+        private void master_operasional(object sender, EventArgs e)
+        {
+            //Master Data - data rumah sakit
+        }
+
+        private void master_pegawai(object sender, EventArgs e)
+        {
+            //Master Pegawai
+        }
+
+        private void laporan_inap(object sender, EventArgs e)
+        {
+            //Laporan Inap
+        }
+
+        private void laporan_pegawai(object sender, EventArgs e)
+        {
+            //Laporan Pegawai
+        }
+
+        private void laporan_perawatan(object sender, EventArgs e)
+        {
+            //Laporan Perawatan
+        }
+
+        private void laporan_keuangan(object sender, EventArgs e)
+        {
+            //Laporan Keuangan
+        }
+
+        private void laporan_warehouse(object sender, EventArgs e)
+        {
+            //Laporan Warehouse
+        }
+
+        private void laporan_kunjungan(object sender, EventArgs e)
+        {
+            //Laporan Kunjungan
         }
 
         private void transaksi_obat(object sender, EventArgs e)
