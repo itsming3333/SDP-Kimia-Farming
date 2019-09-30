@@ -36,17 +36,22 @@ namespace KimiaFarming
             String password = textBox2.Text;
             if(id == "kasir")
             {
-                parent.createMenu("kasir");
                 parent.goTo(-1);
-            }else if(id == "perawat")
+                parent.createMenu("kasir");
+            }
+            else if(id == "dokter" || id == "suster")
             {
-
+                parent.goTo(-1);
+                parent.createMenu("perawat");
             }else if(id == "warehouse")
             {
-
-            }else if(id == "apoteker")
+                parent.goTo(-1);
+                parent.createMenu("warehouse");
+            }
+            else if(id == "apoteker")
             {
-
+                parent.goTo(-1);
+                parent.createMenu("apoteker");
             }
             else
             {
