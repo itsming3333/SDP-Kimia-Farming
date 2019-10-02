@@ -15,6 +15,8 @@ namespace KimiaFarming
         public FormLogin()
         {
             InitializeComponent();
+            Image background = Image.FromFile("image/background.jpg");
+            this.BackgroundImage = background;
             this.Size = new Size(800, 600);
         }
 

@@ -52,6 +52,18 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMasterMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMasterMember.Designer.cs">
+      <DependentUpon>FormMasterMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewMember.Designer.cs">
+      <DependentUpon>FormNewMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormParent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,16 +76,40 @@
     <Compile Include="FormPengguna.Designer.cs">
       <DependentUpon>FormPengguna.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRawatInap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRawatInap.Designer.cs">
+      <DependentUpon>FormRawatInap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRawatJalan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRawatJalan.Designer.cs">
+      <DependentUpon>FormRawatJalan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMasterMember.resx">
+      <DependentUpon>FormMasterMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewMember.resx">
+      <DependentUpon>FormNewMember.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormParent.resx">
       <DependentUpon>FormParent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPengguna.resx">
       <DependentUpon>FormPengguna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRawatInap.resx">
+      <DependentUpon>FormRawatInap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRawatJalan.resx">
+      <DependentUpon>FormRawatJalan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

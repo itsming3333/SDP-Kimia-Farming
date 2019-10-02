@@ -14,13 +14,23 @@ namespace KimiaFarming
     {
         FormPengguna f_pengguna;
         FormLogin f_login;
+        FormMasterMember f_masterMember;
+        FormNewMember f_newMember;
+        FormRawatInap f_rawatInap;
+        FormRawatJalan f_rawatJalan;
 
         public String passAdmin = "admin1234";
         public FormParent()
         {
             InitializeComponent();
+            Image background = Image.FromFile("image/background.jpg");
+            this.BackgroundImage = background;
             f_pengguna = new FormPengguna();
             f_login = new FormLogin();
+            f_masterMember = new FormMasterMember();
+            f_newMember = new FormNewMember();
+            f_rawatJalan = new FormRawatJalan();
+            f_rawatInap = new FormRawatInap();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,11 +45,18 @@ namespace KimiaFarming
             //id Form Page
             //0 Form Pengguna
             //1 Form Login
+            //2 Form Master Member
+            //3 Form New Member
+            //4 Form Rawat Inap
+            //5 Form Rawat Jalan
 
             //RESET FORM PARENT
-            createMenu("");
             f_pengguna.Close();
             f_login.Close();
+            f_masterMember.Close();
+            f_newMember.Close();
+            f_rawatInap.Close();
+            f_rawatJalan.Close();
 
             //CHANGE PAGE FUNCTION
             if(id == 0)
@@ -56,9 +73,37 @@ namespace KimiaFarming
                 f_login.Show();
                 f_login.Location = new Point(0, 0);
             }
+            else if (id == 2)
+            {
+                f_masterMember = new FormMasterMember();
+                f_masterMember.MdiParent = this;
+                f_masterMember.Show();
+                f_masterMember.Location = new Point(0, 0);
+            }
+            else if (id == 3)
+            {
+                f_newMember = new FormNewMember();
+                f_newMember.MdiParent = this;
+                f_newMember.Show();
+                f_newMember.Location = new Point(0, 0);
+            }
+            else if (id == 4)
+            {
+                f_rawatInap = new FormRawatInap();
+                f_rawatInap.MdiParent = this;
+                f_rawatInap.Show();
+                f_rawatInap.Location = new Point(0, 0);
+            }
+            else if (id == 5)
+            {
+                f_rawatJalan = new FormRawatJalan();
+                f_rawatJalan.MdiParent = this;
+                f_rawatJalan.Show();
+                f_rawatJalan.Location = new Point(0, 0);
+            }
             else
             {
-
+                
             }
         }
 
@@ -285,7 +330,7 @@ namespace KimiaFarming
 
         private void add_rawat_inap(object sender, EventArgs e)
         {
-            //RAWAT INAP
+            
         }
 
         private void konfirmasi_rawat_jalan(object sender, EventArgs e)
@@ -296,26 +341,27 @@ namespace KimiaFarming
         private void logout_click(object sender, EventArgs e)
         {
             //logout
+            createMenu("");
             goTo(0);
         }
 
         //MENU CLICK KASIR
         public void master_member(object sender, EventArgs e)
         {
-            //MASTER MEMBER
+            this.goTo(2);
         }
         public void new_member(object sender, EventArgs e)
         {
-            //NEW MEMBER
+            this.goTo(3);
         }
         private void rawat_jalan(object sender, EventArgs e)
         {
-            //RAWAT JALAN
+            goTo(5);
         }
 
         private void rawat_inap(object sender, EventArgs e)
         {
-            //RAWAT INAP
+            goTo(4);
         }
         private void donor_click(object sender, EventArgs e)
         {

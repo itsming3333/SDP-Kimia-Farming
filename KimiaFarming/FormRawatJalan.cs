@@ -10,33 +10,26 @@ using System.Windows.Forms;
 
 namespace KimiaFarming
 {
-    public partial class FormPengguna : Form
+    public partial class FormRawatJalan : Form
     {
-        public FormPengguna()
+        public FormRawatJalan()
         {
             InitializeComponent();
             Image background = Image.FromFile("image/background.jpg");
             this.BackgroundImage = background;
             this.Size = new Size(800, 600);
+            timer1.Start();
             this.FormBorderStyle = FormBorderStyle.None;
         }
 
-        private void FormPengguna_Load(object sender, EventArgs e)
+        private void FormRawatJalan_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
-            FormParent parent = (FormParent)this.MdiParent;
-            parent.goTo(-1);
-            parent.createMenu("admin");
-        }
-
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            FormParent parent = (FormParent)this.MdiParent;
-            parent.goTo(1);
+            label21.Text = DateTime.Now.ToString();
         }
     }
 }
