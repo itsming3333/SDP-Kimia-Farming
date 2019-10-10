@@ -14,29 +14,21 @@ namespace KimiaFarming
     {
         FormPengguna f_pengguna;
         FormLogin f_login;
-        FormMasterMember f_masterMember;
-        FormNewMember f_newMember;
-        FormRawatInap f_rawatInap;
-        FormRawatJalan f_rawatJalan;
 
         public String passAdmin = "admin1234";
         public FormParent()
         {
             InitializeComponent();
-            Image background = Image.FromFile("image/background.jpg");
-            this.BackgroundImage = background;
             f_pengguna = new FormPengguna();
             f_login = new FormLogin();
-            f_masterMember = new FormMasterMember();
-            f_newMember = new FormNewMember();
-            f_rawatJalan = new FormRawatJalan();
-            f_rawatInap = new FormRawatInap();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             f_pengguna.MdiParent = this;
             f_pengguna.Show();
+            tabControl1.Hide();
             f_pengguna.Location = new Point(0, 0);
         }
 
@@ -53,10 +45,6 @@ namespace KimiaFarming
             //RESET FORM PARENT
             f_pengguna.Close();
             f_login.Close();
-            f_masterMember.Close();
-            f_newMember.Close();
-            f_rawatInap.Close();
-            f_rawatJalan.Close();
 
             //CHANGE PAGE FUNCTION
             if(id == 0)
@@ -72,34 +60,54 @@ namespace KimiaFarming
                 f_login.MdiParent = this;
                 f_login.Show();
                 f_login.Location = new Point(0, 0);
-            }
+            }// MASUKAN KE TAB CONTROL
             else if (id == 2)
             {
-                f_masterMember = new FormMasterMember();
-                f_masterMember.MdiParent = this;
-                f_masterMember.Show();
-                f_masterMember.Location = new Point(0, 0);
+                FormMasterMember f_masterMember = new FormMasterMember();
+                f_masterMember.TopLevel = false;
+                f_masterMember.Visible = true;
+                f_masterMember.FormBorderStyle = FormBorderStyle.None;
+                f_masterMember.Dock = DockStyle.Fill;
+                TabPage newTab = new TabPage("Data Member");
+                newTab.Controls.Add(f_masterMember);
+                f_masterMember.Parent = newTab;
+                tabControl1.TabPages.Add(newTab);
             }
             else if (id == 3)
             {
-                f_newMember = new FormNewMember();
-                f_newMember.MdiParent = this;
-                f_newMember.Show();
-                f_newMember.Location = new Point(0, 0);
+                FormNewMember f_newMember = new FormNewMember();
+                f_newMember.TopLevel = false;
+                f_newMember.Visible = true;
+                f_newMember.FormBorderStyle = FormBorderStyle.None;
+                f_newMember.Dock = DockStyle.Fill;
+                TabPage newTab = new TabPage("Member Baru");
+                newTab.Controls.Add(f_newMember);
+                f_newMember.Parent = newTab;
+                tabControl1.TabPages.Add(newTab);
             }
             else if (id == 4)
             {
-                f_rawatInap = new FormRawatInap();
-                f_rawatInap.MdiParent = this;
-                f_rawatInap.Show();
-                f_rawatInap.Location = new Point(0, 0);
+                FormRawatInap f_rawatInap = new FormRawatInap();
+                f_rawatInap.TopLevel = false;
+                f_rawatInap.Visible = true;
+                f_rawatInap.FormBorderStyle = FormBorderStyle.None;
+                f_rawatInap.Dock = DockStyle.Fill;
+                TabPage newTab = new TabPage("Rawat Inap");
+                newTab.Controls.Add(f_rawatInap);
+                f_rawatInap.Parent = newTab;
+                tabControl1.TabPages.Add(newTab);
             }
             else if (id == 5)
             {
-                f_rawatJalan = new FormRawatJalan();
-                f_rawatJalan.MdiParent = this;
-                f_rawatJalan.Show();
-                f_rawatJalan.Location = new Point(0, 0);
+                FormRawatJalan f_rawatJalan = new FormRawatJalan();
+                f_rawatJalan.TopLevel = false;
+                f_rawatJalan.Visible = true;
+                f_rawatJalan.FormBorderStyle = FormBorderStyle.None;
+                f_rawatJalan.Dock = DockStyle.Fill;
+                TabPage newTab = new TabPage("Rawat Jalan");
+                newTab.Controls.Add(f_rawatJalan);
+                f_rawatJalan.Parent = newTab;
+                tabControl1.TabPages.Add(newTab);
             }
             else
             {
@@ -109,6 +117,10 @@ namespace KimiaFarming
 
         public void createMenu(String page)
         {
+            tabControl1.TabPages.Clear();
+            tabControl1.Show();
+            tabControl1.Location = new Point(0, 25);
+            tabControl1.Size = new Size(800, 625);
             menuStrip1.Items.Clear();
             if(page == "kasir")
             {
@@ -140,6 +152,7 @@ namespace KimiaFarming
                 ToolStripMenuItem logout = new ToolStripMenuItem("Log Out");
                 logout.Click += logout_click;
                 menuStrip1.Items.Add(logout);
+                goTo(2);
             }else if (page == "perawat")
             {
                 ToolStripMenuItem perawatan = new ToolStripMenuItem("Perawatan");
@@ -238,6 +251,10 @@ namespace KimiaFarming
                 ToolStripMenuItem logout = new ToolStripMenuItem("Log Out");
                 logout.Click += logout_click;
                 menuStrip1.Items.Add(logout);
+            }
+            else
+            {
+                tabControl1.Hide();
             }
         }
 
